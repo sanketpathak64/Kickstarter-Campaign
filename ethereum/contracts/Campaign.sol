@@ -1,4 +1,5 @@
 pragma solidity ^0.4.17;
+// pragma solidity ^0.4.25
 
 
 contract CampaignFactory {
@@ -7,7 +8,6 @@ contract CampaignFactory {
         address newCampaign = new Campaign(minimum,msg.sender);
         deployedCampaigns.push(newCampaign);
     }
-    
     function getDeployedContracts() public view returns (address[]){
         return deployedCampaigns;
     }
@@ -16,12 +16,11 @@ contract CampaignFactory {
 
 
 contract Campaign {
-    
     struct Request {
         string description;
         uint value;
         address recipient;
-        bool complete; 
+        bool complete;
         uint approvalCount;
         mapping(address =>bool) approvals;
     }
